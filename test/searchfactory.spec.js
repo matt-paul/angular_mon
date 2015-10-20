@@ -1,5 +1,17 @@
 describe('factory: Search', function() {
 
+  var items = [
+         {
+                  "login": "tansaku",
+                         "avatar_url": "https://avatars.githubusercontent.com/u/30216?v=3",
+                                "html_url": "https://github.com/tansaku"
+                                     },
+                                          {
+                                                   "login": "stephenlloyd",
+                                                          "avatar_url": "https://avatars.githubusercontent.com/u/196474?v=3",
+                                                                 "html_url": "https://github.com/stephenlloyd"
+                                                                      }
+                                                                         ];
   var search;
 
   beforeEach(module('GitUserSearch'));
@@ -24,7 +36,7 @@ describe('factory: Search', function() {
   it('returns search results', function() {
     search.query('hello')
       .then(function(response) {
-        expect(response.data).toEqual(items)
+        expect(response.data.items).toEqual(items)
       })
     httpBackend.flush();
   })
